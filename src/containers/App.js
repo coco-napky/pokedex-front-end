@@ -5,8 +5,67 @@ import * as CounterActions from '../actions/CounterActions';
 import { Link } from 'react-router';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
-import {Button, Icon} from 'react-materialize';
+import PokeTable from '../components/PokeTable';
+import {Button, Icon, Modal, Input, Row} from 'react-materialize';
 
+
+const daPokemons =
+[
+        {
+            id: '0',
+            name: 'Pikachu',
+            typeOne: 'Electric',
+            typeTwo: ''
+        },
+        {
+            id: '1',
+            name: 'Bulbasaur',
+            typeOne: 'Grass',
+            typeTwo: 'Poison'
+        },
+        {
+            id: '2',
+            name: 'Charmander',
+            typeOne: 'Fire',
+            typeTwo: ''
+        },
+        {
+            id: '0',
+            name: 'Pikachu',
+            typeOne: 'Electric',
+            typeTwo: ''
+        },
+        {
+            id: '1',
+            name: 'Bulbasaur',
+            typeOne: 'Grass',
+            typeTwo: 'Poison'
+        },
+        {
+            id: '2',
+            name: 'Charmander',
+            typeOne: 'Fire',
+            typeTwo: ''
+        },
+        {
+            id: '0',
+            name: 'Pikachu',
+            typeOne: 'Electric',
+            typeTwo: ''
+        },
+        {
+            id: '1',
+            name: 'Bulbasaur',
+            typeOne: 'Grass',
+            typeTwo: 'Poison'
+        },
+        {
+            id: '2',
+            name: 'Charmander',
+            typeOne: 'Fire',
+            typeTwo: ''
+        }
+]
 
 /**
  * It is common practice to have a 'Root' container/component require our main App (this one).
@@ -20,9 +79,8 @@ export default class App extends Component {
         return (
             <div>
                 <Header/>
-                <Button waves='light'>button<Icon right>cloud</Icon></Button>
+                <PokeTable pokemons={daPokemons}/>
             </div>
-
         );
     }
 }
