@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <title>A/A Challenge</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,900,500italic,700' rel='stylesheet' type='text/css'>
+
+  <% if(production){ %>
+    <script src="/bundle.js"></script>
+  <% } else{ %>
+   <!-- development mode -->
+    <script src="/static/bundle.js"></script>
+  <% } %>
+ </html>
