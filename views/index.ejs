@@ -5,7 +5,9 @@
   <body>
     <div id="root"></div>
   </body>
-  <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,900,500italic,700' rel='stylesheet' type='text/css'>
+    <link type="text/css" rel="stylesheet" href="../asd/css/materialize.min.css"  media="screen,projection"/>
+    <link href="materialize/css/materialize.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <% if(production){ %>
     <script src="/bundle.js"></script>
@@ -13,4 +15,7 @@
    <!-- development mode -->
     <script src="/static/bundle.js"></script>
   <% } %>
+
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js'></script>
  </html>
