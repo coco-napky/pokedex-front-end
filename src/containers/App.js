@@ -5,9 +5,6 @@ import * as CounterActions from '../actions/CounterActions';
 import { Link } from 'react-router';
 import Footer from '../components/Footer';
 
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
-
 /**
  * It is common practice to have a 'Root' container/component require our main App (this one).
  * Again, this is because it serves to wrap the rest of our application with the Provider
@@ -18,8 +15,7 @@ export default class App extends Component {
         // we can use ES6's object destructuring to effectively 'unpack' our props
         const { counter, actions, children} = this.props;
         return (
-            <MuiThemeProvider>
-            </MuiThemeProvider>
+            <div>This is foo</div>
         );
     }
 }
