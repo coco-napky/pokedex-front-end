@@ -4,6 +4,9 @@ import { connect } from 'react-redux';
 import * as CounterActions from '../actions/CounterActions';
 import { Link } from 'react-router';
 import Footer from '../components/Footer';
+import Header from '../components/Header';
+import {Button, Icon} from 'react-materialize';
+
 
 /**
  * It is common practice to have a 'Root' container/component require our main App (this one).
@@ -15,7 +18,11 @@ export default class App extends Component {
         // we can use ES6's object destructuring to effectively 'unpack' our props
         const { counter, actions, children} = this.props;
         return (
-            <div>This is foo</div>
+            <div>
+                <Header/>
+                <Button waves='light'>button<Icon right>cloud</Icon></Button>
+            </div>
+
         );
     }
 }
