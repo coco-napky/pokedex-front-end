@@ -1,71 +1,10 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as CounterActions from '../actions/CounterActions';
+import * as PokeActions from '../actions/PokeActions';
 import { Link } from 'react-router';
-import Footer from '../components/Footer';
 import Header from '../components/Header';
 import PokeTable from '../components/PokeTable';
-import {Button, Icon, Modal, Input, Row} from 'react-materialize';
-
-
-const daPokemons =
-[
-        {
-            id: '0',
-            name: 'Pikachu',
-            typeOne: 'Electric',
-            typeTwo: ''
-        },
-        {
-            id: '1',
-            name: 'Bulbasaur',
-            typeOne: 'Grass',
-            typeTwo: 'Poison'
-        },
-        {
-            id: '2',
-            name: 'Charmander',
-            typeOne: 'Fire',
-            typeTwo: ''
-        },
-        {
-            id: '0',
-            name: 'Pikachu',
-            typeOne: 'Electric',
-            typeTwo: ''
-        },
-        {
-            id: '1',
-            name: 'Bulbasaur',
-            typeOne: 'Grass',
-            typeTwo: 'Poison'
-        },
-        {
-            id: '2',
-            name: 'Charmander',
-            typeOne: 'Fire',
-            typeTwo: ''
-        },
-        {
-            id: '0',
-            name: 'Pikachu',
-            typeOne: 'Electric',
-            typeTwo: ''
-        },
-        {
-            id: '1',
-            name: 'Bulbasaur',
-            typeOne: 'Grass',
-            typeTwo: 'Poison'
-        },
-        {
-            id: '2',
-            name: 'Charmander',
-            typeOne: 'Fire',
-            typeTwo: ''
-        }
-]
 
 /**
  * It is common practice to have a 'Root' container/component require our main App (this one).
@@ -75,11 +14,11 @@ const daPokemons =
 export default class App extends Component {
     render() {
         // we can use ES6's object destructuring to effectively 'unpack' our props
-        const { counter, actions, children} = this.props;
+        const { pokedex, actions, children } = this.props;
         return (
             <div>
                 <Header/>
-                <PokeTable pokemons={daPokemons}/>
+                <PokeTable {...pokedex} {...actions}/>
             </div>
         );
     }
@@ -92,7 +31,7 @@ export default class App extends Component {
  */
 function mapStateToProps(state) {
     return {
-
+        pokedex: state.pokedex
     };
 }
 
@@ -106,7 +45,7 @@ function mapStateToProps(state) {
  */
 function mapDispatchToProps(dispatch) {
     return {
-        actions: bindActionCreators(CounterActions, dispatch)
+        actions: bindActionCreators(PokeActions, dispatch)
     };
 }
 

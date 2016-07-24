@@ -17,8 +17,70 @@ if(process.env.NODE_ENV !== 'production'){
 	app.use(require('webpack-hot-middleware')(compiler));
 }
 
-app.get('*', (req, res) => {
+app.get('/', (req, res) => {
   	res.render('index', {production: process.env.NODE_ENV === 'production'});
+});
+
+app.get('/getPokemons', (req, res) => {
+
+  const pokemons =
+[
+    {
+        id: '0',
+        name: 'Pikachu',
+        typeOne: 'Electric',
+        typeTwo: ''
+    },
+    {
+        id: '1',
+        name: 'Bulbasaur',
+        typeOne: 'Grass',
+        typeTwo: 'Poison'
+    },
+    {
+        id: '2',
+        name: 'Charmander',
+        typeOne: 'Fire',
+        typeTwo: ''
+    },
+    {
+        id: '3',
+        name: 'Pikachu',
+        typeOne: 'Electric',
+        typeTwo: ''
+    },
+    {
+        id: '4',
+        name: 'Bulbasaur',
+        typeOne: 'Grass',
+        typeTwo: 'Poison'
+    },
+    {
+        id: '5',
+        name: 'Charmander',
+        typeOne: 'Fire',
+        typeTwo: ''
+    },
+    {
+        id: '6',
+        name: 'Pikachu',
+        typeOne: 'Electric',
+        typeTwo: ''
+    },
+    {
+        id: '7',
+        name: 'Bulbasaur',
+        typeOne: 'Grass',
+        typeTwo: 'Poison'
+    },
+    {
+        id: '8',
+        name: 'Charmander',
+        typeOne: 'Fire',
+        typeTwo: ''
+    }
+]
+    res.send({pokemons});
 });
 
 app.listen(3000, '0.0.0.0', (err) => {

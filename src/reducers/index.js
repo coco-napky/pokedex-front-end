@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import counter from './counter';
+import pokedex from './pokedex';
 
 /* Added routeReducer from react-router-redux */
 /* This captures routes as state */
@@ -20,6 +21,7 @@ import { routeReducer } from 'react-router-redux';
 
 const rootReducer = combineReducers({
   counter, // you might be used to: counter: counter,
+  pokedex,
   routing: routeReducer // add routeReducer as a prop on state
 });
 
