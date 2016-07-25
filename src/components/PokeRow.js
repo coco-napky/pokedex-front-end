@@ -13,17 +13,35 @@ export const PokeRow = (props) => (
         <td>{props.typeTwo}</td>
         <td>
             <a className="btn-floating btn-small waves-effect waves-light modal-trigger blue"
-                onClick={ n => {openEditModal(props.modalEdit)} }>
+               onClick={ n => {clickHandler({...props})}}>
                 <i className="material-icons">mode_edit</i>
             </a>
         </td>
         <td>
-            <a className="btn-floating btn-small waves-effect waves-light red">
+            <a className="btn-floating btn-small waves-effect waves-light red"
+               onClick={ n => {deleteHandler({...props})}}>
                 <i className="material-icons">delete</i>
             </a>
         </td>
     </tr>
 )
 
+const clickHandler  = args => {
+    const pokemon = {
+        id: args.id,
+        name: args.name,
+        typeOne: args.typeOne,
+        typeTwo: args.typeTwo
+    }
+    args.setFocusedPokemon(pokemon);
+    openEditModal(args.modalEdit);
+}
+
+const deleteHandler = args => {
+    const {id, deletePokemon} = args;
+    deletePokemon({id});
+}
+
 const openEditModal = (modalId) => $(`#${modalId}`).openModal();
+
 export default PokeRow;
