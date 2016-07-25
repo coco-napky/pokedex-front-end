@@ -1,4 +1,4 @@
-import { REFRESH, ADD_POKEMON, SET_FOCUSED_POKEMON, RESET_FOCUSED_POKEMON } from '../actions/PokeActions';
+import { REFRESH, ADD_POKEMON, DELETE_POKEMON, UPDATE_POKEMON, SET_FOCUSED_POKEMON, RESET_FOCUSED_POKEMON } from '../actions/PokeActions';
 
 const init = {
 	focusedPokemon : {},
@@ -13,7 +13,9 @@ export default function counter(state = init, action) {
     case RESET_FOCUSED_POKEMON:
        return { ...state, focusedPokemon: {} };
     case ADD_POKEMON:
-       return { ...state, pokemons: [...state.pokemons, action.pokemon] };
+    case DELETE_POKEMON:
+    case UPDATE_POKEMON:
+       return { ...state, fresh: false };
     case REFRESH:
        return { ...state, fresh: true, pokemons: action.pokemons };
     default:

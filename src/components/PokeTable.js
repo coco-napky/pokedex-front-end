@@ -33,7 +33,11 @@ class PokeTable extends Component {
 
 	render(){
 
-		const {fresh, refresh, resetFocusedPokemon} = this.props;
+		const {fresh, refresh, resetFocusedPokemon, setFocusedPokemon,
+		       getPokemons, deletePokemon, updatePokemon, focusedPokemon, postPokemon} = this.props;
+
+		if(!fresh)
+			getPokemons();
 
 		return (
 			<div style={tableStyle}>
@@ -52,8 +56,9 @@ class PokeTable extends Component {
 				    	{this.props.pokemons.map(
 				    		pokemon => mapPokemon(
 				    		{ ...pokemon,
-				    		  setFocusedPokemon: this.props.setFocusedPokemon,
-				    		  resetFocusedPokemon: this.props.resetFocusedPokemon
+				    		  setFocusedPokemon,
+				    		  resetFocusedPokemon,
+				    		  deletePokemon
 				    		})
 				    	)}
 				    </tbody>
@@ -63,9 +68,11 @@ class PokeTable extends Component {
 				   style={addButtonStyle}>
 					<i className="material-icons">add</i>
 				</a>
-				<CreateModal addPokemon={this.props.addPokemon}/>
-				<EditModal focusedPokemon={this.props.focusedPokemon}
-				 resetFocusedPokemon={this.props.resetFocusedPokemon}/>
+				<CreateModal addPokemon={postPokemon}/>
+				<EditModal focusedPokemon={focusedPokemon}
+				 resetFocusedPokemon={resetFocusedPokemon}
+				 updatePokemon = {updatePokemon}
+				 />
 			</div>
 		)
 	}

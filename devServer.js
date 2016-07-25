@@ -26,61 +26,40 @@ app.get('/getPokemons', (req, res) => {
   const pokemons =
 [
     {
-        id: '0',
-        name: 'Pikachu',
-        typeOne: 'Electric',
-        typeTwo: ''
+        Id: '0',
+        Name: 'Pikachu',
+        Type1: 'Electric',
+        Type2: ''
     },
     {
-        id: '1',
-        name: 'Bulbasaur',
-        typeOne: 'Grass',
-        typeTwo: 'Poison'
+        Id: '1',
+        Name: 'Bulbasaur',
+        Type1: 'Grass',
+        Type2: 'Poison'
     },
     {
-        id: '2',
-        name: 'Charmander',
-        typeOne: 'Fire',
-        typeTwo: ''
-    },
-    {
-        id: '3',
-        name: 'Pikachu',
-        typeOne: 'Electric',
-        typeTwo: ''
-    },
-    {
-        id: '4',
-        name: 'Bulbasaur',
-        typeOne: 'Grass',
-        typeTwo: 'Poison'
-    },
-    {
-        id: '5',
-        name: 'Charmander',
-        typeOne: 'Fire',
-        typeTwo: ''
-    },
-    {
-        id: '6',
-        name: 'Pikachu',
-        typeOne: 'Electric',
-        typeTwo: ''
-    },
-    {
-        id: '7',
-        name: 'Bulbasaur',
-        typeOne: 'Grass',
-        typeTwo: 'Poison'
-    },
-    {
-        id: '8',
-        name: 'Charmander',
-        typeOne: 'Fire',
-        typeTwo: ''
+        Id: '2',
+        Name: 'Charmander',
+        Type1: 'Fire',
+        Type2: ''
     }
 ]
     res.send({pokemons});
+});
+
+app.post('/create', (req, res) => {
+    console.log('/create log')
+    res.send({status: 1, message: "Successful insert"});
+});
+
+app.post('/delete', (req, res) => {
+    console.log('/delete log')
+    res.send({status: 1, message: "Successful delete"});
+});
+
+app.post('/update', (req, res) => {
+    console.log('/update log')
+    res.send({status: 1, message: "Successful update"});
 });
 
 app.listen(3000, '0.0.0.0', (err) => {
